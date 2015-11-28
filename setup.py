@@ -18,7 +18,7 @@ with open('README.md') as f:
 
 setup(name='DecoraterBotCore',
       author='Decorater',
-      url='',
+      url='https://github.com/AraHaan/DecoraterBotCore/tree/Pre-Beta',
       version=version,
       packages=['DecoraterBotCore'],
       license='MIT',
