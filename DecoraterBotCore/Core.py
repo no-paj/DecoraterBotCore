@@ -1,13 +1,19 @@
 import os
 import discord
 import requests
+import io
 #import os.path
 import ctypes
 #import subprocess
 #import json
 #import socket
+#import logging
 
-
+#logger = logging.getLogger('discord')
+#logger.setLevel(logging.ERROR)
+#handler = logging.FileHandler(filename='errors.txt', encoding='utf-8', mode='a')
+#handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s\n'))
+#logger.addHandler(handler)
 discord_user_id = '94203228043874304'
 discord_server_id = '93740277918871552' #Amiable Server ID.
 discord_server_id2 = '81392063312044032' #Ambition Server ID.
@@ -25,6 +31,14 @@ def changeWindowTitle():
 
 @client.event
 def commands(client, message):
+    if message.author.id == '86607397321207808':
+        usrname = 'spoopy'
+    if message.author.id == '109379894718234624':
+        usrname = 'spoo.py'
+    if message.content is not None:
+        file = open('log.txt', 'a')
+#        io.open('log.txt', mode='a', buffering=-1, encoding='utf-8', errors=None, newline=None, closefd=True)
+        file.write('Name=' + (message.author.name or usrname) + ' ' + 'ID=' + message.author.id + ' Server=' + message.channel.server.name + ' Channel=' + message.channel.name + ' Message=' + message.content + "\n")
     if(message.content.startswith('::kill')):
         for disuser in message.mentions:
             user = discord.utils.find(lambda member: member.name == disuser.name, message.channel.server.members)
@@ -133,3 +147,9 @@ def commands(client, message):
                     client.delete_message(log_message)
             else:
                 client.send_message(message.channel, 'You are not the Right Role to use this command.')
+
+@client.event
+def on_error(event, *args, **kwargs):
+#    logger.exception('Exception occurred in {}'.format(event))
+    file2 = open('errors.txt', 'a')
+    traceback.format_exc(file2.write(traceback + "\n"))

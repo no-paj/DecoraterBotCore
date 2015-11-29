@@ -18,7 +18,7 @@ __copyright__ = 'Copyright 2015 Decorater'
 __version__ = '1.0.0.12'
 __build__ = 0x100000c
 
-from .Core import changeWindowTitle, commands
+from .Core import changeWindowTitle, commands, on_error
 import logging
 
 try:
