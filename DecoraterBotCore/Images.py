@@ -4,7 +4,7 @@ import io
 
 def images(client, message):
     if(message.content.startswith('::catgirls')):
-        randomnumber = random.randint(1, 41)
+        randomnumber = random.randint(1, 43)
         if randomnumber == 1:
             file = './images/9bb44f2a4acee610c940ee0327f2ce8b.jpg'
             client.send_message(message.channel, 'Image: ' + str(randomnumber))
@@ -167,6 +167,14 @@ def images(client, message):
             client.send_file(message.channel, file)
         if randomnumber == 41:
             file = './images/tumblr_nykzh8JQpM1qa63ddo1_540.png'
+            client.send_message(message.channel, 'Image: ' + str(randomnumber))
+            client.send_file(message.channel, file)
+        if randomnumber == 42:
+            file = './images/c20557cef189eb39fd9bdfaf838e17fb.jpg'
+            client.send_message(message.channel, 'Image: ' + str(randomnumber))
+            client.send_file(message.channel, file)
+        if randomnumber == 43:
+            file = './images/b937e2243f69483030ae55a413cc7548.gif'
             client.send_message(message.channel, 'Image: ' + str(randomnumber))
             client.send_file(message.channel, file)
         file2 = io.open('images.txt', 'a')
