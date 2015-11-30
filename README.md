@@ -12,4 +12,4 @@
 
 ``pip install discord.py``
 
-Pip Will usually take care of the other requirements.
+pip Will usually take care of the other requirements.
